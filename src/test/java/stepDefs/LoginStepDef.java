@@ -35,6 +35,7 @@ public class LoginStepDef {
 	    // Write code here that turns the phrase above into concrete actions
 	  boolean  isValidUser=driver.findElement(By.id("flash-messages")).isDisplayed();
 	  Assert.assertTrue(isValidUser);
+	  driver.close();
 	}
 	
 

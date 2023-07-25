@@ -35,4 +35,16 @@ public class GoogleSearchPage_stepDef {
 		driver.close();
 	   
 	}
+	
+	
+	@When("User search for Selenium tutorial")
+	public void user_search_for_selenium_tutorial() {
+		WebElement searchBox=driver.findElement(By.name("q"));
+		searchBox.sendKeys("Selenium Tutorial");
+	}
+	@Then("Should display Selnium result page")
+	public void should_display_selnium_result_page() {
+		Assert.assertEquals(driver.getTitle(), "Google");
+		driver.close();
+	}
 }

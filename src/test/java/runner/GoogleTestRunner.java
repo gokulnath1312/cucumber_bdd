@@ -8,7 +8,9 @@ import io.cucumber.testng.CucumberOptions;
 		features="src\\test\\resources\\feature\\",
 		glue= {"stepDefs"},
 		monochrome=true,
-		plugin= {"pretty"}
+		dryRun=false,
+		plugin= {"pretty",
+				"usage:target/report/usageReport"}
 	
 		)
 
