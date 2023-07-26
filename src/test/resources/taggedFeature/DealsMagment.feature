@@ -16,21 +16,20 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
-Feature: Google Page Search
-  I want to use this template for my feature file
-  
- Background: Launch App
-Given User launch the google page
+@FeatureDeal
+Feature: Deal Management
 
-  @google @java
-  Scenario: Search Java Tutorial
-    
-    When User search for Java tutorial
-    Then Should display Java result page
-    
-    @google @selenium
-    Scenario: Search Selenium Tutorial
-   
-    When User search for Selenium tutorial
-    Then Should display Selnium result page
+@SmokeTest @RegressionTest
+  Scenario: Create a Deal
+    Given User is logged in
+    When User create a Deal
+
+@RegressionTest
+  Scenario: Update a Deal
+    Given User is logged in
+    When User update a Deal
+
+@SmokeTest
+  Scenario: Delete a Deal
+    Given User is logged in
+    When User delete a Deal.

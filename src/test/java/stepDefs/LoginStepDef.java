@@ -1,12 +1,15 @@
 package stepDefs;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -38,7 +41,44 @@ public class LoginStepDef {
 	  driver.close();
 	}
 	
+	@When("user enters login {string} and {string} credentails")
+	public void user_enters_login_and_credentails(String userName, String userPwd) {
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(userName);
+		//input[@name='username']
+		//input[@id='username']
+		driver.findElement(By.id("password")).sendKeys(userPwd);
+		driver.findElement(By.cssSelector(".fa.fa-2x.fa-sign-in")).click();
+	}
 
+	/*
+	@When("user enters login  credentails")
+	public void user_enters_login_credentails(DataTable dataTable) {
+	    List<List<String>> users=dataTable.asLists();
+	    String userName=users.get(0).get(0);
+	    String userPwd=users.get(0).get(1);
+	    driver.findElement(By.xpath("//input[@type='text']")).sendKeys(userName);
+		//input[@name='username']
+		//input[@id='username']
+		driver.findElement(By.id("password")).sendKeys(userPwd);
+		driver.findElement(By.cssSelector(".fa.fa-2x.fa-sign-in")).click();
+	}
+*/
+	
+	@When("user enters login  credentails")
+	public void user_enters_login_credentails(DataTable dataTable2) {
+	    List<Map<String, String>> users=dataTable2.asMaps();
+	   
+	    	 String userName=users.get(0).get("username");
+	 	    String userPwd=users.get(0).get("password");
+	 	    driver.findElement(By.xpath("//input[@type='text']")).sendKeys(userName);
+	 		//input[@name='username']
+	 		//input[@id='username']
+	 		driver.findElement(By.id("password")).sendKeys(userPwd);
+	 		driver.findElement(By.cssSelector(".fa.fa-2x.fa-sign-in")).click();	
+	    
+	   
+	}	
+	
 	
 
 }

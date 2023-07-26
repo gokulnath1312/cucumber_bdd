@@ -17,20 +17,22 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Google Page Search
-  I want to use this template for my feature file
-  
- Background: Launch App
-Given User launch the google page
+Feature: Send Email
+  I want to validate email
 
-  @google @java
-  Scenario: Search Java Tutorial
-    
-    When User search for Java tutorial
-    Then Should display Java result page
-    
-    @google @selenium
-    Scenario: Search Selenium Tutorial
+@tag1
+Scenario Outline: send email to user
+   Given user must launch the application
+   When user should send email to register
+   """
+   Hello <user>
    
-    When User search for Selenium tutorial
-    Then Should display Selnium result page
+   Welcome to our community !...
+   
+   click on the below link for registration...
+   
+   """
+      Examples:
+   |user|
+   |John|
+   |test|

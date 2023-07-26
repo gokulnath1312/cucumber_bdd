@@ -5,10 +5,14 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 		
-		features="src\\test\\resources\\feature\\SendEmail.feature",
+		features="src\\test\\resources\\taggedFeature",
 		glue= {"stepDefs"},
 		monochrome=true,
-		dryRun=false,
+		dryRun=true,
+		//tags="@RegressionTest and @SmokeTest",
+		//tags="@SmokeTest and not @RegressionTest",
+		//tags="@FeatureDeal and @SmokeTest",
+		tags="@FeatureDeal or @FeatureContact and @SmokeTest",
 	//	tags = "tag2",
 		plugin= {"pretty",
 			//	"usage:target/report/usageReport",
@@ -21,6 +25,6 @@ import io.cucumber.testng.CucumberOptions;
 		)
 
 
-public class GoogleTestRunner extends AbstractTestNGCucumberTests {
+public class TaggedRunner extends AbstractTestNGCucumberTests {
 
 }

@@ -5,22 +5,21 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 		
-		features="src\\test\\resources\\feature\\SendEmail.feature",
+		features="@target/report/failedScenarios.txt",
 		glue= {"stepDefs"},
 		monochrome=true,
 		dryRun=false,
-	//	tags = "tag2",
 		plugin= {"pretty",
 			//	"usage:target/report/usageReport",
-				"html:target/report/HTMLReport.html",
+			//	"html:target/report/HTMLReport.html",
 			//	"json:target/report/JSONReport.json",
 			//	"testng:target/report/TestngReport.xml",
 			//	"rerun:target/report/filedScenarios.txt"}
-		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+				
+				"com.aventstack.extentreports.cucumber.adaper.ExtentCucumberAdapter:"}
 	
 		)
 
-
-public class GoogleTestRunner extends AbstractTestNGCucumberTests {
+public class Rerunner extends AbstractTestNGCucumberTests {
 
 }
