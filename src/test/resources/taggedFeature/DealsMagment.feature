@@ -19,9 +19,12 @@
 @FeatureDeal
 Feature: Deal Management
 
+Background: Login in to the app
+Given User is logged in
+
 @SmokeTest @RegressionTest
   Scenario: Create a Deal
-    Given User is logged in
+    
     When User create a Deal
 
 @RegressionTest

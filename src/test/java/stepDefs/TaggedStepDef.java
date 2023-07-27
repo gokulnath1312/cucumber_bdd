@@ -15,10 +15,15 @@ public class TaggedStepDef {
 	public static void setUp() {
 		System.out.println("Before All step");
 	}
-  @Before
+  @Before (value="@smokeTest", order=1)
   public void eachScenario() {
 	  System.out.println("Before each scenario...");
   }
+  @Before (value="@smokeTest", order=1)
+  public void readproperty() {
+	  System.out.println("Read property file method...");
+  }
+  
   
   @BeforeStep
   public void eachStep() {
